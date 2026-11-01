@@ -1,1 +1,189 @@
+:root{--bg:#050b18;--panel:#0a172a;--line:#1b3550;--cyan:#54e5f2;--muted:#91a8bd;--white:#edf7ff}
 
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+
+body{margin:0;background:radial-gradient(ellipse at 78% 10%,#102847 0,transparent 30%),#050b18;color:var(--white);font-family:'Space Grotesk',sans-serif}
+
+a{color:inherit;text-decoration:none}
+
+.topbar{height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#050b18eF;backdrop-filter:blur(15px);z-index:5}
+
+.brand{font-weight:700;letter-spacing:2px}
+
+.brand b{display:inline-grid;place-items:center;border:1px solid var(--cyan);color:var(--cyan);width:27px;height:27px;transform:rotate(45deg);margin-right:8px}
+
+.brand span,em{color:var(--cyan);font-style:normal}
+
+nav{display:flex;gap:28px}
+
+nav a,.nav-cta{font-size:12px;color:var(--muted)}
+
+#menuToggle{display:none}
+
+.wrap{width:min(1100px,88%);margin:auto}
+
+.hero{min-height:590px;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;padding:65px 0}
+
+.eyebrow,small,.scroll,.panel-bar,.hint,.fact-no{font-family:'DM Mono',monospace;letter-spacing:1px;font-size:10px;color:var(--cyan)}
+
+h1{font-size:clamp(45px,6.8vw,80px);line-height:.98;letter-spacing:-4px;margin:24px 0}
+
+.hero p,.heading p,.closing p{max-width:440px;color:var(--muted);line-height:1.8;font-size:14px}
+
+.button{display:inline-block;margin-top:18px;padding:14px 18px;background:linear-gradient(110deg,#237ce5,#27c8df);color:#04101d;font-size:12px;font-weight:600;border:0}
+
+.stats{display:flex;gap:40px;margin-top:50px}
+
+.stats div{display:grid;gap:5px}
+
+.stats b{font-size:24px}
+
+.stats small{font-size:9px;color:var(--muted)}
+
+.hero-art{height:390px;display:grid;place-items:center;position:relative}
+
+.hero-planet{width:min(290px,65vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b5faff,#2676ad 25%,#102e57 60%,#030917 78%);box-shadow:inset -25px -20px 50px #020713,0 0 65px #168acb55}
+
+.orbit{position:absolute;width:390px;height:145px;border:1px solid #54e5f233;border-radius:50%;transform:rotate(-25deg)}
+
+.orbit.second{width:450px;height:190px;transform:rotate(35deg);border-color:#54e5f21c}
+
+.moon{position:absolute;width:20px;height:20px;background:#d6a66c;border-radius:50%;right:13%;top:22%;box-shadow:0 0 20px #d6a66c}
+
+.hero-art label{position:absolute;left:2%;top:12%;font:10px 'DM Mono';color:var(--muted)}
+
+.scroll{position:absolute;bottom:20px;left:0;color:var(--muted)}
+
+.section{padding:75px 0}
+
+.heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:27px}
+
+.heading h2,.fact h2{font-size:clamp(29px,4vw,43px);letter-spacing:-1.5px;margin:10px 0}
+
+.heading p{max-width:330px;font-size:12px;margin:0}
+
+.panel{border:1px solid var(--line);background:#091629}
+
+.panel-bar{height:42px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;font-size:9px}
+
+.panel-bar span{color:var(--muted)}
+
+#solarSystem{height:440px;position:relative;overflow:hidden;touch-action:pan-y}
+
+#solarSystem canvas{width:100%;height:100%;display:block}
+
+#loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--cyan);font:11px 'DM Mono';z-index:2}
+
+#solarSystem aside{position:absolute;bottom:18px;left:18px;width:min(260px,70%);padding:14px;background:#04101ddd;border:1px solid var(--line);pointer-events:none}
+
+aside small{font-size:9px}
+
+aside h3{margin:7px 0}
+
+aside p{font-size:11px;line-height:1.6;color:var(--muted);margin:0}
+
+.hint{position:absolute;bottom:18px;right:15px;font-size:8px;color:var(--muted)}
+
+.bottom{color:var(--muted)}
+
+.planet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+
+.planet-card{padding:17px;text-align:left;background:linear-gradient(145deg,#10233b,#081426);border:1px solid var(--line);color:var(--white);min-height:160px;cursor:pointer;transition:.2s}
+
+.planet-card:hover{transform:translateY(-4px);border-color:var(--cyan)}
+
+.planet-ball{width:46px;height:46px;border-radius:50%;margin-bottom:18px;box-shadow:inset -9px -6px 12px #0008,0 0 18px var(--glow)}
+
+.planet-card h3{font-size:15px;margin:0 0 5px}
+
+.planet-card p{font-size:10px;color:var(--muted);margin:0}
+
+.fact{margin-top:35px;margin-bottom:35px;padding:40px 5%;display:flex;align-items:center;gap:35px;background:linear-gradient(110deg,#102b4a,#0a1426);border:1px solid var(--line)}
+
+.asterisk{font-size:80px;color:var(--cyan);text-shadow:0 0 35px #54e5f277}
+
+.fact p{font-size:13px;color:var(--muted)}
+
+.outline{background:transparent;color:var(--cyan);border:1px solid #54e5f277}
+
+.fact-no{margin-left:auto;white-space:nowrap}
+
+.fact-no span{color:var(--cyan)}
+
+.missions{border-top:1px solid var(--line)}
+
+.missions article{display:grid;grid-template-columns:150px 1fr 25px;gap:20px;align-items:center;padding:24px 10px;border-bottom:1px solid var(--line)}
+
+.missions article>small{color:var(--cyan)}
+
+.missions h3{margin:0 0 7px;font-size:17px}
+
+.missions p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+
+.missions article>b{color:var(--cyan)}
+
+.closing{text-align:center;padding:95px 0}
+
+.closing h2{font-size:clamp(42px,7vw,70px);margin:15px}
+
+.closing p{margin:0 auto}
+
+footer{border-top:1px solid var(--line);padding:25px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px}
+
+footer p,footer small{color:var(--muted);font-size:10px}
+
+@media(max-width:700px){.topbar{height:64px}
+
+#menuToggle{display:block;background:none;border:0;color:var(--cyan);font-size:22px}
+
+nav{display:none;position:absolute;top:63px;left:0;right:0;padding:20px 7%;background:#071326;flex-direction:column}
+
+nav.open{display:flex}
+
+.nav-cta{display:none}
+
+.hero{grid-template-columns:1fr;padding-top:30px}
+
+.hero-art{grid-row:1;height:290px}
+
+.hero-planet{width:210px}
+
+.orbit{width:290px;height:110px}
+
+.orbit.second{width:340px;height:145px}
+
+.hero>div:first-child{grid-row:2}
+
+.hero h1{font-size:clamp(46px,12vw,68px)}
+
+.stats{gap:25px;margin-top:35px}
+
+.heading{display:block}
+
+.heading p{margin-top:12px}
+
+.planet-grid{grid-template-columns:repeat(2,1fr)}
+
+#solarSystem{height:370px}
+
+.fact{padding:27px 6%;gap:15px}
+
+.asterisk{font-size:45px}
+
+.fact h2{font-size:27px}
+
+.fact-no{display:none}
+
+.missions article{grid-template-columns:1fr 22px;gap:8px}
+
+.missions article>small{grid-column:1/-1}
+
+footer{flex-wrap:wrap}
+
+footer p{order:3;width:100%;margin:0}
+
+}
+
+       
